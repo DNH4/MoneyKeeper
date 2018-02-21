@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/MSave"
+        android:icon="@drawable/content_save"
+        android:showAsAction="ifRoom"
+        android:title="Save"/>
+    <item
+        android:id="@+id/MCancel"
+        android:icon="@drawable/content_remove"
+        android:showAsAction="always"
+        android:title="Cancel"/>
+
+</menu>

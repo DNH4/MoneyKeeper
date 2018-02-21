@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+          
+            <Button
+                android:id="@+id/bAboutMe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:text="ABOUT" />
+                        <View
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="GENERAL"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+            
+              
+ <Button
+                android:id="@+id/bSetGoal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Goal" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/bPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Password Protected: Off" />
+
+            <TextView
+                android:id="@+id/tvPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingBottom="5dp"
+                 android:text="Lock access to: Read Only" 
+                 android:textSize="15sp"
+                android:textColor="@color/holo_blue_dark"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+
+
+            <Button
+                android:id="@+id/bCategoryMan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Category Management" />
+            
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+
+
+            <Button
+                android:id="@+id/bImportExport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Import/Export database" />
+
+
+           
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:text="FUTURE UPDATE"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/bSched"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Automatic Schedule Transaction" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/bWidget"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Widget Setting" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_marginLeft="4dip"
+                android:layout_marginRight="4dip"
+                android:background="@android:color/darker_gray" />
+
+            <Button
+                android:id="@+id/bSync"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:gravity="left|center_vertical"
+                android:paddingLeft="15dp"
+                android:text="Cloud Sync" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
