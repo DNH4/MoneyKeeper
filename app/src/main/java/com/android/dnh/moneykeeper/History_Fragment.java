@@ -429,45 +429,90 @@ public class History_Fragment extends Fragment implements OnItemSelectedListener
 		// TODO Auto-generated method stub
 		switch(arg0.getId()){
 		case(R.id.BtNext):
-			switch(dateFilter1.getSelectedItemPosition()){
+			switch(dateFilter1.getSelectedItemPosition())
+			{
 			case 0:
-				if(current_day<31){
-					current_day = current_day+1;
-					DayOfWeek = myDateFormat.dayofweekChange(0, DayOfWeek);}
+				if(current_day < 31)
+				{
+					current_day = current_day + 1;
+				}
+				else
+				{
+					current_day = 1;
+					if(current_month < 12)
+					{
+						current_month = current_month + 1;
+					}
+					else
+					{
+						current_month = 1;
+						current_year = current_year + 1;
+					}
+				}
+				DayOfWeek = myDateFormat.dayofweekChange(0, DayOfWeek);
 				myDateDisplay(0);
 				break;
 			case 1:
-				if(current_month<12){
-					current_month = current_month+1;}
+				if(current_month < 12)
+				{
+					current_month = current_month + 1;
+				}
+				else
+				{
+					current_month = 1;
+					current_year = current_year + 1;
+				}
 				myDateDisplay(1);
 				break;
 			case 2:
-				current_year = current_year+1;
+				current_year = current_year + 1;
 				myDateDisplay(2);
 				break;
 			}
 			break;
 		case(R.id.BtPrev):
-			switch(dateFilter1.getSelectedItemPosition()){
+			switch(dateFilter1.getSelectedItemPosition())
+			{
 			case 0:
-				if(current_day>1){
-					current_day = current_day-1;
-					DayOfWeek = myDateFormat.dayofweekChange(1, DayOfWeek);}
+				if(current_day > 1)
+				{
+					current_day = current_day - 1;
+				}
+				else
+				{
+					current_day = 31;
+					if(current_month > 1)
+					{
+						current_month = current_month - 1;
+					}
+					else
+					{
+						current_month = 12;
+						current_year = current_year - 1;
+					}
+				}
+				DayOfWeek = myDateFormat.dayofweekChange(1, DayOfWeek);
 				myDateDisplay(0);
 				break;
 			case 1:
-				if(current_month>1){
-					current_month = current_month-1;}
+				if(current_month > 1)
+				{
+					current_month = current_month - 1;
+				}
+				else
+				{
+					current_month = 12;
+					current_year = current_year - 1;
+				}
 				myDateDisplay(1);
 				break;
 			case 2:
-				current_year = current_year-1;
+				current_year = current_year - 1;
 				myDateDisplay(2);
 				break;
 			}
 			break;
 		}
-		
 	}
 	
 	private void myDateDisplay(int i){
