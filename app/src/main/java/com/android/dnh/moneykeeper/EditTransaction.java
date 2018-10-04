@@ -71,56 +71,9 @@ public class EditTransaction extends Activity implements OnItemSelectedListener,
 			return true;
 		case R.id.MSave:
 			alertMessage(0);
-			/*boolean didItWork = true;
-			boolean entryValid = true;
-			try {
-				try {// error if user don't input float number
-					myAmount = mySign * Float.parseFloat(amount.getText().toString());// Getting float amt
-
-				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					Dialog d = new Dialog(this);
-					d.setTitle("Not a valid number");
-					d.show();
-					didItWork = false;
-					entryValid = false;
-				}
-				// myCategory = "Default";
-				myCategory = category.getSelectedItem().toString();// Getting from spinner
-
-				myNote = note.getText().toString();
-				myCurrency = "CND";// To get from base currency in pref.
-
-				MyMoney entry = new MyMoney(EditTransaction.this);
-				entry.open();
-				if(entryValid){// check if enter correctly to field
-					entry.updateEntry(editRow,myDate, myAmount, myCategory, myNote, myCurrency);}
-				entry.close();
-				
-
-			} catch (Exception e) {
-
-				didItWork = false;
-				String error = e.toString();// to print out error
-				Dialog d = new Dialog(this);
-				d.setTitle("Booo..");
-				TextView tv = new TextView(this);
-				tv.setText(error);
-				d.setContentView(tv);
-				d.show();
-			} finally {
-				if (didItWork) {
-					finish();
-				}
-			}*/
 			return true;
 		case R.id.MDelete:
 			alertMessage(1);
-/*			MyMoney entry = new MyMoney(EditTransaction.this);
-			entry.open();
-			entry.deleteEntry(editRow);
-			finish();*/
 			return true;
 		
 		default:
@@ -235,50 +188,6 @@ public class EditTransaction extends Activity implements OnItemSelectedListener,
 		switch (arg0.getId()) {
 		case R.id.BtSave:// when click save
 			alertMessage(0);
-			/*boolean didItWork = true;
-			boolean entryValid = true;
-			try {
-				try {// error if user don't input float number
-					myAmount = mySign * Float.parseFloat(amount.getText().toString());// Getting float amt
-
-				} catch (NumberFormatException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					Dialog d = new Dialog(this);
-					d.setTitle("Please enter a Valid number");
-					d.show();
-					didItWork = false;
-					entryValid = false;
-				}
-				// myCategory = "Default";
-				myCategory = category.getSelectedItem().toString();// Getting from spinner
-
-				myNote = note.getText().toString();
-				myCurrency = "CND";// To get from base currency in pref.
-
-				MyMoney entry = new MyMoney(EditTransaction.this);
-				entry.open();
-
-				if(entryValid){
-					entry.updateEntry(editRow, myDate, myAmount, myCategory, myNote, myCurrency);}
-				entry.close();
-				
-
-			} catch (Exception e) {
-
-				didItWork = false;
-				String error = e.toString();// to print out error
-				Dialog d = new Dialog(this);
-				d.setTitle("Booo..");
-				TextView tv = new TextView(this);
-				tv.setText(error);
-				d.setContentView(tv);
-				d.show();
-			} finally {
-				if (didItWork) {
-					finish();
-				}
-			}*/
 			break;
 
 		case R.id.BtCancel:
