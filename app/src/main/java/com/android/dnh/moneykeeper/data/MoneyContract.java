@@ -1,10 +1,21 @@
 package com.android.dnh.moneykeeper.data;
 
+import android.net.Uri;
 import android.provider.BaseColumns;
+
 
 public final class MoneyContract
 {
     private MoneyContract(){} // no instantiate of contract class
+
+
+    /**
+     * URI constant
+     */
+    public static final String CONTENT_AUTHORITY = "com.android.dnh.moneykeeper.provider";
+    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+    public static final Uri CONTENT_URI_TRANSACTION = Uri.withAppendedPath(BASE_CONTENT_URI, MoneyEntry.TABLE_NAME_TRANSACTION);
+    public static final Uri CONTENT_URI_CATEGORY = Uri.withAppendedPath(BASE_CONTENT_URI, MoneyEntry.TABLE_NAME_CATEGORY);
 
     /**
      * Categories

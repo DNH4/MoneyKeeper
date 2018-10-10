@@ -146,5 +146,10 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        
+        <provider
+            android:authorities="com.android.dnh.moneykeeper.provider"
+            android:name=".data.MoneyProvider"
+            android:exported="false"/>
     </application>
 </manifest>
