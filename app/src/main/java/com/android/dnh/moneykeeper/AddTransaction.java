@@ -39,7 +39,7 @@ public class AddTransaction extends Activity implements OnItemSelectedListener, 
 	// String[] categories = {"Category","Food","Entertainment"};
 	String[] categories;
 
-	ArrayAdapter<String> adapterCatergory;
+	ArrayAdapter<String> adapterCategory;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -124,10 +124,10 @@ public class AddTransaction extends Activity implements OnItemSelectedListener, 
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		initilize();
+		initialize();
 	}
 
-	private void initilize() {
+	private void initialize() {
 
 		mcl.open();
 	/*	int a = mcl.loadData(1).length;// Check if already create table with default value
@@ -172,17 +172,18 @@ public class AddTransaction extends Activity implements OnItemSelectedListener, 
 		// cat.add(...); can get from internal or external data
 		List<String> cat = new ArrayList<String>();
 
-		adapterCatergory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cat);
+		adapterCategory = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cat);
 		// Specify the layout to use when the list of choices appears
-		adapterCatergory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
-		// adapterCatergory.add("TEST");
+		// adapterCategory.add("TEST");
 		for (int i = 1; i < (categories.length); i++) {// TODO Move to Different location to ini everytime update
-			adapterCatergory.add(categories[i]);
-		}adapterCatergory.add(categories[0]);
+			adapterCategory.add(categories[i]);
+		}
+		adapterCategory.add(categories[0]);
 		// tv1.setText(categories[0]+" + "+ categories.length);
 
-		category.setAdapter(adapterCatergory);
+		category.setAdapter(adapterCategory);
 		category.setOnItemSelectedListener(this);
 
 		sign.setOnClickListener(this);
@@ -214,7 +215,7 @@ public class AddTransaction extends Activity implements OnItemSelectedListener, 
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
-		// adapterCatergory.add("test");
+		// adapterCategory.add("test");
 		switch (arg0.getId()) {
 		case R.id.BtSave:// when click save
 			boolean didItWork = true;
@@ -271,7 +272,7 @@ public class AddTransaction extends Activity implements OnItemSelectedListener, 
 			break;
 
 		case R.id.BtCancel:
-			/*adapterCatergory.add("test");// for spinner testing*/
+			/*adapterCategory.add("test");// for spinner testing*/
 			finish();
 			break;
 
@@ -303,10 +304,6 @@ public class AddTransaction extends Activity implements OnItemSelectedListener, 
 
 			break;*/
 		}
-		
-
-		
-
 	}
 
 	@Override

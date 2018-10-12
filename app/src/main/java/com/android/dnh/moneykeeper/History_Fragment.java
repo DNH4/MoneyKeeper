@@ -112,7 +112,7 @@ public class History_Fragment extends Fragment implements OnItemSelectedListener
 		adapterCatergory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		adapterDate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
-		// adapterCatergory.add("TEST");
+		// adapterCategory.add("TEST");
 		adapterCatergory.add("All Categories");
 		for (int i = 1; i < (categories.length); i++) {// TODO Move to Different location to ini everytime update
 			adapterCatergory.add(categories[i]);

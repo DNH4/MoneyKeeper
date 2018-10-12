@@ -123,7 +123,7 @@ public class EditTransaction extends Activity implements OnItemSelectedListener,
 		// Specify the layout to use when the list of choices appears
 		adapterCatergory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		// Apply the adapter to the spinner
-		// adapterCatergory.add("TEST");
+		// adapterCategory.add("TEST");
 		for (int i = 1; i < (categories.length); i++) {// TODO Move to Different location to ini everytime update
 			adapterCatergory.add(categories[i]);
 		}adapterCatergory.add(categories[0]);
@@ -184,14 +184,14 @@ public class EditTransaction extends Activity implements OnItemSelectedListener,
 	@Override
 	public void onClick(View arg0) {
 		// TODO Auto-generated method stub
-		// adapterCatergory.add("test");
+		// adapterCategory.add("test");
 		switch (arg0.getId()) {
 		case R.id.BtSave:// when click save
 			alertMessage(0);
 			break;
 
 		case R.id.BtCancel:
-			/*adapterCatergory.add("test");// for spinner testing*/
+			/*adapterCategory.add("test");// for spinner testing*/
 			finish();
 			break;
 

@@ -32,7 +32,7 @@ public class Main extends FragmentActivity implements TabListener {
 	// private MyPagerAdapter mPagerAdapter;
 	
 /*	Spinner dateFilter,categoryFilter;
-	ArrayAdapter<String> adapterCatergory,adapterDate;
+	ArrayAdapter<String> adapterCategory,adapterDate;
 	String[] categories;*/
 	
 	
@@ -179,7 +179,4 @@ public class Main extends FragmentActivity implements TabListener {
 			prefEditor.commit();
 		}
 	}
-	
-	
-
 }

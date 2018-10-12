@@ -56,7 +56,7 @@ public class CategoryManagement extends Activity implements OnItemClickListener 
 		loadData();
 		listview = (ListView) findViewById(R.id.listView1);
 		
-		//adapterCatergory = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myCategory);
+		//adapterCategory = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myCategory);
 		adapterCatergory = new MyListViewAdapter(this, myCategory);
 /*	    final MyListViewAdapter adapter = new MyListViewAdapter(this,
 	        android.R.layout.simple_list_item_1, list);*/

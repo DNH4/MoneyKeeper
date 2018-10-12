@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.android.dnh.moneykeeper.data.MoneyContract.MoneyEntry;
 
@@ -18,6 +19,7 @@ import com.android.dnh.moneykeeper.data.MoneyContract.MoneyEntry;
 
 public class MoneyProvider extends ContentProvider
 {
+    private static final String LOG_TAG = "MoneyProvider";
     private MoneyDbHelper moneyDbHelper;
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
     private static final int TRANSACTION = 100;
@@ -86,25 +88,112 @@ public class MoneyProvider extends ContentProvider
     @Override
     public String getType(@NonNull Uri uri)
     {
-        return null;
+        int match = sUriMatcher.match(uri); // Getting an int that match Uri setup in initialization
+        switch(match){
+            case TRANSACTION:
+                return MoneyEntry.CONTENT_TRANSACTION_LIST_TYPE;
+            case TRANSACTION_ID:
+                return MoneyEntry.CONTENT_TRANSACTION_ITEM_TYPE;
+            case CATEGORY:
+                return MoneyEntry.CONTENT_CATEGORY_LIST_TYPE;
+            case CATEGORY_ID:
+                return MoneyEntry.CONTENT_CATEGORY_ITEM_TYPE;
+            default:
+                throw  new IllegalArgumentException("Cannot query Unknown URI: " + uri);
+        }
     }
 
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values)
     {
-        return null;
+        int match = sUriMatcher.match(uri); // Getting an int that match Uri setup in initialization
+        switch (match){
+            case TRANSACTION:
+                return insertTransaction(uri, values);
+            case CATEGORY:
+                return insertCatalog(uri, values);
+            default:
+                throw new IllegalArgumentException("Insertion is not support for: " + uri);
+        }
     }
 
-    @Override
-    public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs)
-    {
-        return 0;
+    // TODO: add validation checks
+    private Uri insertTransaction(Uri uri, ContentValues values){
+        SQLiteDatabase database = moneyDbHelper.getWritableDatabase();
+        long id = database.insert(MoneyEntry.TABLE_NAME_TRANSACTION,null,values);
+        if(id == -1){
+            Log.e(LOG_TAG, "Fail to inserted row for " + uri);
+            return null;
+        }
+        return ContentUris.withAppendedId(uri,id);
+    }
+
+    // TODO: add validation checks
+    private Uri insertCatalog(Uri uri, ContentValues values){
+        SQLiteDatabase database = moneyDbHelper.getWritableDatabase();
+        long id = database.insert(MoneyEntry.TABLE_NAME_CATEGORY,null,values);
+        if(id == -1){
+            Log.e(LOG_TAG, "Fail to inserted row for " + uri);
+            return null;
+        }
+        return ContentUris.withAppendedId(uri,id);
     }
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs)
     {
-        return 0;
+        int match = sUriMatcher.match(uri); // Getting an int that match Uri setup in initialization
+        switch(match){
+            case TRANSACTION:
+                return updateTransaction(values,selection,selectionArgs);
+            case TRANSACTION_ID:
+                selection = MoneyEntry._ID + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                return updateTransaction(values,selection,selectionArgs);
+            case CATEGORY:
+                return updateCategory(values,selection,selectionArgs);
+            case CATEGORY_ID:
+                selection = MoneyEntry._ID + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                return updateCategory(values,selection,selectionArgs);
+            default:
+                throw  new IllegalArgumentException("Cannot query Unknown URI: " + uri);
+        }
+    }
+
+    // TODO: add validation checks
+    private int updateTransaction(ContentValues values, String selection, String[] selectionArgs){
+        SQLiteDatabase database = moneyDbHelper.getWritableDatabase();
+        return database.update(MoneyEntry.TABLE_NAME_TRANSACTION,values,selection,selectionArgs);
+    }
+
+    // TODO: add validation checks
+    private int updateCategory(ContentValues values, String selection, String[] selectionArgs){
+        SQLiteDatabase database = moneyDbHelper.getWritableDatabase();
+        return database.update(MoneyEntry.TABLE_NAME_CATEGORY,values,selection,selectionArgs);
+    }
+
+    @Override
+    public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs)
+    {
+        SQLiteDatabase database = moneyDbHelper.getWritableDatabase();
+        int match = sUriMatcher.match(uri); // Getting an int that match Uri setup in initialization
+        switch(match){
+            case TRANSACTION:
+                return database.delete(MoneyEntry.TABLE_NAME_TRANSACTION,selection,selectionArgs);
+            case TRANSACTION_ID:
+                selection = MoneyEntry._ID + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                return database.delete(MoneyEntry.TABLE_NAME_TRANSACTION,selection,selectionArgs);
+            case CATEGORY:
+                return database.delete(MoneyEntry.TABLE_NAME_CATEGORY,selection,selectionArgs);
+            case CATEGORY_ID:
+                selection = MoneyEntry._ID + "=?";
+                selectionArgs = new String[] {String.valueOf(ContentUris.parseId(uri))};
+                return database.delete(MoneyEntry.TABLE_NAME_CATEGORY,selection,selectionArgs);
+            default:
+                throw  new IllegalArgumentException("Cannot query Unknown URI: " + uri);
+        }
     }
 }
